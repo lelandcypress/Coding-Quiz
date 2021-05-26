@@ -7,7 +7,7 @@ var option1 = document.getElementById("option1")
 var option2 = document.getElementById("option2")
 var option3 = document.getElementById("option3")
 var option4 = document.getElementById("option4")
-
+var quizCard= document.getElementById("quiz-card")
 
 
 var questions = [ {
@@ -119,5 +119,6 @@ function gameOver(){
 start.addEventListener("click",function(){
     countdown()
     startQuiz()
+    quizCard.style.display= 'block';
 })
 
