@@ -7,12 +7,12 @@ var option1 = document.getElementById("option1")
 var option2 = document.getElementById("option2")
 var option3 = document.getElementById("option3")
 var option4 = document.getElementById("option4")
-var options = Array.from(document.getElementsByClassName("options"))
 var quizCard= document.getElementById("quiz-card")
 var questionCount= 0;
 var score= 0;
 var remainingQuestions = []
 var currentQuestion = {}
+
 var questions = [ {
   answer:1,
   question:'Who invented JavaScript?',
@@ -122,45 +122,54 @@ function nextQuestion(){
   questionIndex=Math.floor(Math.random()*remainingQuestions.length);
   currentQuestion=remainingQuestions[questionIndex];
   questionTitle.textContent = currentQuestion.question; 
-  option1.textContent = currentQuestion.option1
-  option2.textContent = currentQuestion.option2
-  option3.textContent = currentQuestion.option3
-  option4.textContent = currentQuestion.option4
-  
+  option1.textContent = currentQuestion.option1;
+  option2.textContent = currentQuestion.option2;
+  option3.textContent = currentQuestion.option3;
+  option4.textContent = currentQuestion.option4;
+  remainingQuestions.splice(questionIndex,1);
 } 
 
-option1.addEventListener('click',function(){
- if(userInput===true){
-   correct()
- }else{
-   wrong()
- }
-  nextQuestion();
-})
-  
-option2.addEventListener('click',function(){
-  if(userInput===true){
+option1.addEventListener('click',function(event){
+  var userSelection = event.target
+  var userSelectionData= userSelection.dataset["number"] 
+  if (userSelectionData == currentQuestion.answer){
     correct()
   }else{
     wrong()
   }
   nextQuestion();
 })
-option3.addEventListener('click',function(){
-  if(userInput===true){
+
+option2.addEventListener('click',function(event){
+  var userSelection = event.target
+  var userSelectionData = userSelection.dataset["number"] 
+  if (userSelectionData == currentQuestion.answer){
+    correct()
+  } else{
+    wrong()
+  }
+ nextQuestion();
+})
+option3.addEventListener('click',function(event){
+  var userSelection = event.target
+  var userSelectionData= userSelection.dataset["number"] 
+  if (userSelectionData == currentQuestion.answer){
     correct()
   }else{
     wrong()
   }
-  nextQuestion();
+
+ nextQuestion();
 })
-option4.addEventListener('click',function(){
-  if(userInput===true){
+option4.addEventListener('click',function(event){
+  var userSelection = event.target
+  var userSelectionData= userSelection.dataset["number"] 
+  if (userSelectionData == currentQuestion.answer){
     correct()
   }else{
     wrong()
-  }  
-  nextQuestion();
+  }
+ nextQuestion();
 })
 
 function wrong(){
