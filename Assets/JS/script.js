@@ -8,8 +8,10 @@ var option2 = document.getElementById("option2")
 var option3 = document.getElementById("option3")
 var option4 = document.getElementById("option4")
 var quizCard= document.getElementById("quiz-card")
-
-
+var questionCount= 0;
+var score= 0;
+var remainingQuestions = []
+var currentQuestion = {}
 var questions = [ {
   answer:1,
   question:'Who invented JavaScript?',
@@ -83,13 +85,12 @@ var questions = [ {
   option4:'Function'
 }]
 
-
+var timeLeft = 30
 
 
 function countdown(){
   
-  var timeLeft = 10;
-
+ 
   // TODO: Use the `setInterval()` method to call a function to be executed every 1000 milliseconds
   var timeInterval = setInterval(function(){
     if(timeLeft > 1){
@@ -109,36 +110,72 @@ function countdown(){
 
   
     function startQuiz(){
-      questionTitle.textContent = questions[0].question;
+      /*questionTitle.textContent = questions[0].question;
       option1.textContent= questions[0].option1;
       option2.textContent=questions[0].option2;
       option3.textContent=questions[0].option3;
-      option4.textContent=questions[0].option4;
+      option4.textContent=questions[0].option4;*/
+      remainingQuestions = [...questions]
       start.setAttribute("style", "display:none")
+      nextQuestion()
     }   
   /*need a click event listener that evaluates the user response that executes a function, this fuction will determine if the option is true or false, and exectute the next question function*/ 
 function nextQuestion(){
-  questionTitle.textContent = questions[index++].question;
-  option1.textContent=question[index++].option1;
-  option2.textContent=question[index++].option2;
-  option3.textContent=question[index++].option3;
-  option4.textContent=question[index++].option4;
+  console.log(remainingQuestions)
+  questionCount++;
+  questionIndex=Math.floor(Math.random()*remainingQuestions.length);
+  currentQuestion=remainingQuestions[questionIndex];
+  questionTitle.textContent = currentQuestion.question;
+  console.log(currentQuestion.question)
 } 
 
 option1.addEventListener('click',function(){
+ if(userInput===true){
+   correct()
+ }else{
+   wrong()
+ }
   nextQuestion();
 })
   
 option2.addEventListener('click',function(){
+  if(userInput===true){
+    correct()
+  }else{
+    wrong()
+  }
   nextQuestion();
 })
 option3.addEventListener('click',function(){
+  if(userInput===true){
+    correct()
+  }else{
+    wrong()
+  }
   nextQuestion();
 })
 option4.addEventListener('click',function(){
+  if(userInput===true){
+    correct()
+  }else{
+    wrong()
+  }  
   nextQuestion();
 })
 
+function wrong(){
+  --timeLeft
+  --timeLeft
+  --timeLeft
+}
+
+function correct(){
+  ++timeLeft
+  ++timeLeft
+  ++timeLeft
+  ++timeLeft
+  ++timeLeft
+}
 
 function gameOver(){
     messageEL.textContent= 'Sorry! Out of Time';
