@@ -7,6 +7,7 @@ var option1 = document.getElementById("option1")
 var option2 = document.getElementById("option2")
 var option3 = document.getElementById("option3")
 var option4 = document.getElementById("option4")
+var options = Array.from(document.getElementsByClassName("options"))
 var quizCard= document.getElementById("quiz-card")
 var questionCount= 0;
 var score= 0;
@@ -110,11 +111,6 @@ function countdown(){
 
   
     function startQuiz(){
-      /*questionTitle.textContent = questions[0].question;
-      option1.textContent= questions[0].option1;
-      option2.textContent=questions[0].option2;
-      option3.textContent=questions[0].option3;
-      option4.textContent=questions[0].option4;*/
       remainingQuestions = [...questions]
       start.setAttribute("style", "display:none")
       nextQuestion()
@@ -125,8 +121,12 @@ function nextQuestion(){
   questionCount++;
   questionIndex=Math.floor(Math.random()*remainingQuestions.length);
   currentQuestion=remainingQuestions[questionIndex];
-  questionTitle.textContent = currentQuestion.question;
-  console.log(currentQuestion.question)
+  questionTitle.textContent = currentQuestion.question; 
+  option1.textContent = currentQuestion.option1
+  option2.textContent = currentQuestion.option2
+  option3.textContent = currentQuestion.option3
+  option4.textContent = currentQuestion.option4
+  
 } 
 
 option1.addEventListener('click',function(){
