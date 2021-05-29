@@ -5,30 +5,30 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+    <link href="./Assets/CSS/style.css" rel="stylesheet">
     <title>Coding Quiz</title>
 </head>
 <body class = "bg-light">
-<div>
-    <h1 class="text-center my-3" >Coding Quiz Challenge</h1>
+<div class ="text-center">
+    <h1 class="my-3" >Coding Quiz Challenge</h1>
     <div id= "diplay-score"></div>
       <div id= "gameover"></div>
       
-    <div class ='container border p-3 mb-2 bg-secondary' id="quiz-card">
-        <div class= "fs-4" id = "question">Test your knowledge</div>
-        
-        <p class="my-3">Time Left: <span id= "display-timer"></span></p>
-        
-          <br> 
-          <p class ="my-3 p-3 mb-2 bg-primary text-white" id = "option1" data-number = 1>Question 1</p>
-          <p class ="my-3 p-3 mb-2 bg-primary text-white" id = "option2" data-number = 2>Question 2</p>
-          <p class ="my-3 p-3 mb-2 bg-primary text-white" id = "option3" data-number = 3>Question 3</p>
-          <p class ="my-3 p-3 mb-2 bg-primary text-white" id = "option4" data-number = 4>Question 4</p>
-              
+    <div class ='hidden container border p-3 mb-2 bg-secondary' id="quiz-card">
+      <p class="my-3">Time Left: <span id= "display-timer"></span></p>
+      <div id ="vanish">
+        <p class= "fs-4" id = "question">Test your knowledge</p>     
+      <br> 
+         <p class ="my-3 p-3 mb-2 bg-primary text-white" id = "option1" data-number = 1></p>
+         <p class ="my-3 p-3 mb-2 bg-primary text-white" id = "option2" data-number = 2></p>
+         <p class ="my-3 p-3 mb-2 bg-primary text-white" id = "option3" data-number = 3></p>
+         <p class ="my-3 p-3 mb-2 bg-primary text-white" id = "option4" data-number = 4></p>
+        </div>
       </div>    
     
 
-  <button class="btn btn-info" id="start-button">Begin Quiz</button>
-
+  <button class="btn btn-success btn-lg me-2" id="start-button">Begin Quiz</button>
+  <button class="btn btn-info btn-lg me-2" id="try-again">Try Again</button>
 
 </div>  
 </body>
