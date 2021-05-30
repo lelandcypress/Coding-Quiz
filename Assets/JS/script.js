@@ -34,6 +34,7 @@ function countdown() {
       //stop timer
       clearInterval(timeInterval);
       timerEl.textContent = "Sorry! Out of Time";
+      feedbackEL.textContent = " ";
       vanish.setAttribute("style", "visibility: hidden");
       tryAgainEL.setAttribute("style", "display: inline;");
     }
@@ -75,8 +76,6 @@ document.querySelectorAll(".options-button").forEach((item) => {
     nextQuestion();
   });
 });
-
-
 
 //decrements 3 seconds per wrong answer//
 function wrong() {
