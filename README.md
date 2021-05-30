@@ -1,2 +1,4 @@
 # Coding-Quiz
-Vanilla JavaScript used to create a quick quiz
+This is a simple quiz game created with Vanilla JavaScript and Bootstrap. 
+
+The user will 

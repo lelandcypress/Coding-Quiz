@@ -1,3 +1,4 @@
+var mainCard = document.getElementById("main-card");
 var start = document.getElementById("start-button");
 var tryAgainEL = document.getElementById("try-again");
 var timerEl = document.getElementById("display-timer");
@@ -10,6 +11,11 @@ var option2 = document.getElementById("option2");
 var option3 = document.getElementById("option3");
 var option4 = document.getElementById("option4");
 var quizCard = document.getElementById("quiz-card");
+var theScore = document.getElementById("the-Score");
+var scoreCard = document.getElementById("score");
+var userSubmission = document.getElementById("entername");
+var subButton = document.getElementById("submit");
+
 var questionCount = 0;
 var remainingQuestions = [];
 var currentQuestion = {};
@@ -151,9 +157,25 @@ function endOfQuiz() {
   //clear the timer interval
   clearInterval(timeLeft);
   // places the time information within the score element
+  mainCard.setAttribute("style", "display:none");
+  feedbackEL.setAttribute("style", "display:none");
+  scoreCard.classList.remove("display");
   var score = timeLeft;
-  //Logs the score to local storage
-  localStorage.setItem("coding quiz score", score);
-  //Open window maintaining scores
-  return (window.location = "score.html");
+  theScore.textContent = score;
 }
+
+//Logs the score to local storage
+//localStorage.setItem("coding quiz score", score);
+//Open window maintaining scores
+//return (window.location = "score.html");
+
+subButton.addEventListener("click", function (event) {
+  event.preventDefault();
+
+  var scoreTracker = {
+    name: userSubmission.value,
+    score: theScore,
+  };
+  console.log(timeLeft);
+  localStorage.setItem("scoreTracker", JSON.stringify(scoreTracker));
+});
