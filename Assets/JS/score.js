@@ -1,5 +1,6 @@
 var userSubmission = document.getElementById("entername");
 var subButton = document.getElementById("submit");
+var tryAgain = document.getElementById("try-again");
 var displayScore = document.getElementById("the-Score");
 var getScore = localStorage.getItem("coding quiz score");
 var hidden = document.getElementById("hidden-table");
@@ -23,3 +24,7 @@ function renderMessage() {
 }
 
 renderMessage();
+
+tryAgain.addEventListener("click", function () {
+  return (window.location = "index.html");
+});

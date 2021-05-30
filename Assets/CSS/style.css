@@ -4,3 +4,15 @@
 .hidden {
   visibility: hidden;
 }
+.custom-button:hover {
+  -webkit-box-shadow: 0px 0px 2.5px 2.5px #0a0a0a;
+  -moz-box-shadow: 0px 0px 2.5px 2.5px #0a0a0a;
+  box-shadow: 0px 0px 2.5px 2.5px #0a0a0a;
+}
+
+.custom-button:active {
+  transform: scale(0.98);
+  /* Scaling button to 0.98 to its original size */
+  box-shadow: 0px 0px 1px 1px #0a0a0a;
+  /* Lowering the shadow */
+}

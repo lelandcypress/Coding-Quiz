@@ -2,6 +2,7 @@ var start = document.getElementById("start-button");
 var tryAgainEL = document.getElementById("try-again");
 var timerEl = document.getElementById("display-timer");
 var messageEL = document.getElementById("gameover");
+var feedbackEL = document.getElementById("correct-or-wrong");
 var questionTitle = document.getElementById("question");
 var vanish = document.getElementById("vanish");
 var option1 = document.getElementById("option1");
@@ -40,14 +41,16 @@ function nextQuestion() {
   questionIndex = Math.floor(Math.random() * remainingQuestions.length);
   currentQuestion = remainingQuestions[questionIndex];
   //DOM method used to populate question and available answers on index.
+
   questionTitle.textContent = currentQuestion.question;
   option1.textContent = currentQuestion.option1;
   option2.textContent = currentQuestion.option2;
   option3.textContent = currentQuestion.option3;
   option4.textContent = currentQuestion.option4;
   remainingQuestions.splice(questionIndex, 1);
+  //backgroundChange.removeAttribute("style", "background-color:#cc0000");
   //Keeps track of how many questions cycled through, triggers score window if user finishes quiz
-  console.log(questionCount);
+
   if (questionCount === 10) {
     endOfQuiz();
   }
@@ -106,6 +109,8 @@ function wrong() {
   --timeLeft;
   --timeLeft;
   --timeLeft;
+  --timeLeft;
+  feedbackEL.textContent = "Wrong Answer!";
 }
 
 //Increments 5 seconds per correct answer//
@@ -115,6 +120,7 @@ function correct() {
   ++timeLeft;
   ++timeLeft;
   ++timeLeft;
+  feedbackEL.textContent = "Correct Answer!";
 }
 
 //User Click//

@@ -1,37 +1,59 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
-    <link href="./Assets/CSS/style.css" rel="stylesheet">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x"
+      crossorigin="anonymous"
+    />
+    <link href="./Assets/CSS/style.css" rel="stylesheet" />
     <title>Coding Quiz</title>
-</head>
-<body class = "bg-light">
-<div class ="text-center">
-    <h1 class="my-3" >Coding Quiz Challenge</h1>
-    <div id= "diplay-score"></div>
-      <div id= "gameover"></div>
-      
-    <div class ='hidden container border p-3 mb-2 bg-secondary' id="quiz-card">
-      <p class="my-3">Time Left: <span id= "display-timer"></span></p>
-      <div id ="vanish">
-        <p class= "fs-4" id = "question">Test your knowledge</p>     
-      <br> 
-         <p class ="my-3 p-3 mb-2 bg-primary text-white" id = "option1" data-number = 1></p>
-         <p class ="my-3 p-3 mb-2 bg-primary text-white" id = "option2" data-number = 2></p>
-         <p class ="my-3 p-3 mb-2 bg-primary text-white" id = "option3" data-number = 3></p>
-         <p class ="my-3 p-3 mb-2 bg-primary text-white" id = "option4" data-number = 4></p>
+  </head>
+  <body class="bg-light">
+    <div id="main-card" class="text-center">
+      <h1 class="my-3">Coding Quiz Challenge</h1>
+      <div id="diplay-score"></div>
+      <div id="gameover"></div>
+      <div class="hidden container border p-3 mb-2 bg-secondary" id="quiz-card">
+        <p class="my-3 fs-5 text-start">
+          Time Left: <span id="display-timer"></span>
+        </p>
+        <div id="vanish">
+          <p class="fs-4" id="question"></p>
+          <br />
+          <p
+            class="my-3 p-3 mb-2 bg-primary text-white custom-button"
+            id="option1"
+            data-number="1"
+          ></p>
+          <p
+            class="my-3 p-3 mb-2 bg-primary text-white custom-button"
+            id="option2"
+            data-number="2"
+          ></p>
+          <p
+            class="my-3 p-3 mb-2 bg-primary text-white custom-button"
+            id="option3"
+            data-number="3"
+          ></p>
+          <p
+            class="my-3 p-3 mb-2 bg-primary text-white custom-button"
+            id="option4"
+            data-number="4"
+          ></p>
         </div>
-      </div>    
-    
-
-  <button class="btn btn-success btn-lg me-2" id="start-button">Begin Quiz</button>
-  <button class="btn btn-info btn-lg me-2" id="try-again">Try Again</button>
-
-</div>  
-</body>
-<script src="./Assets/JS/script.js"></script>
-<script src="Assets/JS/question.js"></script>
+      </div>
+      <button class="btn btn-success btn-lg me-2" id="start-button">
+        Begin Quiz
+      </button>
+      <button class="btn btn-info btn-lg me-2" id="try-again">Try Again</button>
+    </div>
+    <p class="text-center fs-4" id="correct-or-wrong"></p>
+  </body>
+  <script src="./Assets/JS/script.js"></script>
+  <script src="Assets/JS/question.js"></script>
 </html>
