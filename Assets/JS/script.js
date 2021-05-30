@@ -15,11 +15,11 @@ var theScore = document.getElementById("the-Score");
 var scoreCard = document.getElementById("score");
 var userSubmission = document.getElementById("entername");
 var subButton = document.getElementById("submit");
-
 var questionCount = 0;
 var remainingQuestions = [];
 var currentQuestion = {};
 var timeLeft = 60;
+var score = 0;
 
 //Timer
 function countdown() {
@@ -162,20 +162,15 @@ function endOfQuiz() {
   scoreCard.classList.remove("display");
   var score = timeLeft;
   theScore.textContent = score;
+
+  subButton.addEventListener("click", function (event) {
+    event.preventDefault();
+
+    var scoreTracker = {
+      name: userSubmission.value,
+      score: score,
+    };
+    console.log(score);
+    localStorage.setItem("scoreTracker", JSON.stringify(scoreTracker));
+  });
 }
-
-//Logs the score to local storage
-//localStorage.setItem("coding quiz score", score);
-//Open window maintaining scores
-//return (window.location = "score.html");
-
-subButton.addEventListener("click", function (event) {
-  event.preventDefault();
-
-  var scoreTracker = {
-    name: userSubmission.value,
-    score: theScore,
-  };
-  console.log(timeLeft);
-  localStorage.setItem("scoreTracker", JSON.stringify(scoreTracker));
-});
