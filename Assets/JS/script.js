@@ -62,53 +62,21 @@ function nextQuestion() {
   }
 }
 //event listeners per options//
-option1.addEventListener("click", function (event) {
-  var userSelection = event.target;
-  //Evaluates user selection via HTML data set number//
-  var userSelectionData = userSelection.dataset["number"];
-  if (userSelectionData == currentQuestion.answer) {
-    correct();
-  } else {
-    wrong();
-  }
-  nextQuestion();
+document.querySelectorAll(".options-button").forEach((item) => {
+  item.addEventListener("click", function (event) {
+    var userSelection = event.target;
+    //Evaluates user selection via HTML data set number//
+    var userSelectionData = userSelection.dataset["number"];
+    if (userSelectionData == currentQuestion.answer) {
+      correct();
+    } else {
+      wrong();
+    }
+    nextQuestion();
+  });
 });
 
-option2.addEventListener("click", function (event) {
-  var userSelection = event.target;
-  //Evaluates user selection via HTML data set number//
-  var userSelectionData = userSelection.dataset["number"];
-  if (userSelectionData == currentQuestion.answer) {
-    correct();
-  } else {
-    wrong();
-  }
-  nextQuestion();
-});
 
-option3.addEventListener("click", function (event) {
-  var userSelection = event.target;
-  //Evaluates user selection via HTML data set number//
-  var userSelectionData = userSelection.dataset["number"];
-  if (userSelectionData == currentQuestion.answer) {
-    correct();
-  } else {
-    wrong();
-  }
-  nextQuestion();
-});
-
-option4.addEventListener("click", function (event) {
-  var userSelection = event.target;
-  //Evaluates user selection via HTML data set number//
-  var userSelectionData = userSelection.dataset["number"];
-  if (userSelectionData == currentQuestion.answer) {
-    correct();
-  } else {
-    wrong();
-  }
-  nextQuestion();
-});
 
 //decrements 3 seconds per wrong answer//
 function wrong() {
@@ -116,7 +84,7 @@ function wrong() {
   --timeLeft;
   --timeLeft;
   --timeLeft;
-  feedbackEL.textContent = "Wrong Answer!";
+  feedbackEL.textContent = "Wrong!";
 }
 
 //Increments 5 seconds per correct answer//
@@ -126,7 +94,7 @@ function correct() {
   ++timeLeft;
   ++timeLeft;
   ++timeLeft;
-  feedbackEL.textContent = "Correct Answer!";
+  feedbackEL.textContent = "Correct!";
 }
 
 //User Click//
