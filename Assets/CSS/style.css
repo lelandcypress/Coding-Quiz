@@ -19,3 +19,15 @@
 .display {
   display: none;
 }
+.height {
+  height: 500px;
+}
+
+.position {
+  position: relative;
+  left: 475px;
+}
+
+.custom-font {
+  font-family: "Ubuntu", sans-serif;
+}

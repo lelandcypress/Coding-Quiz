@@ -10,13 +10,26 @@
       integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x"
       crossorigin="anonymous"
     />
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@300&display=swap"
+      rel="stylesheet"
+    />
+    <link href="./Assets/CSS/style.css" rel="stylesheet" />
 
     <title>Coding Quiz Scoresheet</title>
   </head>
-  <body>
- 
-    <ul id="hidden-table"></ul>
-    <button class="btn btn-info btn-lg me-2" id="try-again">Try Again</button>
+  <body class="custom-font">
+    <div class="card my-4 bg-secondary height position w-50">
+      <p class="fs-4 border-bottom border-danger text-center">High Scores</p>
+
+      <div class="px-3" id="high-scores"></div>
+    </div>
+    <div class="container text-center">
+      <button class="btn btn-info my-4 btn-lg text-center" id="Go-Back">
+        Play Again
+      </button>
+    </div>
     <script src="./Assets/JS/score.js"></script>
   </body>
 </html>

@@ -21,7 +21,8 @@ var currentQuestion = {};
 var timeLeft = 60;
 var score = 0;
 
-//Timer
+
+//Timer//
 function countdown() {
   var timeInterval = setInterval(function () {
     if (timeLeft > 1) {
@@ -40,32 +41,33 @@ function countdown() {
     }
   }, 1000);
 }
-
+//Dynamically cycles through questions array, found on question.js//
 function nextQuestion() {
-  //increment question count to allow developer to trigger end of game function.
+  //increment question count to allow developer to trigger end of game function.//
   questionCount++;
-  //randomly selects questions
+  //randomly selects questions//
   questionIndex = Math.floor(Math.random() * remainingQuestions.length);
   currentQuestion = remainingQuestions[questionIndex];
-  //DOM method used to populate question and available answers on index.
 
+  //DOM method used to populate question and available answers on index.//
   questionTitle.textContent = currentQuestion.question;
   option1.textContent = currentQuestion.option1;
   option2.textContent = currentQuestion.option2;
   option3.textContent = currentQuestion.option3;
   option4.textContent = currentQuestion.option4;
   remainingQuestions.splice(questionIndex, 1);
-  //backgroundChange.removeAttribute("style", "background-color:#cc0000");
+  
   //Keeps track of how many questions cycled through, triggers score window if user finishes quiz
-
   if (questionCount === 10) {
     endOfQuiz();
   }
 }
+
 //event listeners per options//
 document.querySelectorAll(".options-button").forEach((item) => {
   item.addEventListener("click", function (event) {
     var userSelection = event.target;
+
     //Evaluates user selection via HTML data set number//
     var userSelectionData = userSelection.dataset["number"];
     if (userSelectionData == currentQuestion.answer) {
@@ -77,8 +79,9 @@ document.querySelectorAll(".options-button").forEach((item) => {
   });
 });
 
-//decrements 3 seconds per wrong answer//
+//decrements 5 seconds per wrong answer//
 function wrong() {
+  --timeLeft;
   --timeLeft;
   --timeLeft;
   --timeLeft;
@@ -96,7 +99,7 @@ function correct() {
   feedbackEL.textContent = "Correct!";
 }
 
-//User Click//
+//Begin Quiz Button//
 start.addEventListener("click", function () {
   quizCard.classList.remove("hidden");
   //builds acitve question pool//
@@ -109,6 +112,7 @@ start.addEventListener("click", function () {
   nextQuestion();
 });
 
+//Button appears when time expires, used to restart quiz//
 tryAgainEL.addEventListener("click", function () {
   remainingQuestions = [...questions];
   questionCount = 0;
@@ -119,17 +123,19 @@ tryAgainEL.addEventListener("click", function () {
   nextQuestion();
 });
 
+//Once user cycles through all available questions//
 function endOfQuiz() {
   vanish.setAttribute("style", "visibility: hidden");
   //clear the timer interval
   clearInterval(timeLeft);
-  // places the time information within the score element
+  //hides quiz card
   mainCard.setAttribute("style", "display:none");
   feedbackEL.setAttribute("style", "display:none");
+  //displays score and user submission block//
   scoreCard.classList.remove("display");
   var score = timeLeft;
   theScore.textContent = score;
-
+  //Submit button captures user input, logs to local storage, and redirects user to score.html"
   subButton.addEventListener("click", function (event) {
     event.preventDefault();
 
@@ -137,7 +143,8 @@ function endOfQuiz() {
       name: userSubmission.value,
       score: score,
     };
-    console.log(score);
+    console.log(scoreTracker);
     localStorage.setItem("scoreTracker", JSON.stringify(scoreTracker));
+    window.open("score.html");
   });
 }
