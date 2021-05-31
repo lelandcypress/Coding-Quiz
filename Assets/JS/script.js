@@ -16,11 +16,10 @@ var scoreCard = document.getElementById("score");
 var userSubmission = document.getElementById("entername");
 var subButton = document.getElementById("submit");
 var questionCount = 0;
-var remainingQuestions = [];
-var currentQuestion = {};
 var timeLeft = 60;
 var score = 0;
-
+var remainingQuestions = [];
+var currentQuestion = {};
 
 //Timer//
 function countdown() {
@@ -56,7 +55,7 @@ function nextQuestion() {
   option3.textContent = currentQuestion.option3;
   option4.textContent = currentQuestion.option4;
   remainingQuestions.splice(questionIndex, 1);
-  
+
   //Keeps track of how many questions cycled through, triggers score window if user finishes quiz
   if (questionCount === 10) {
     endOfQuiz();
@@ -139,12 +138,18 @@ function endOfQuiz() {
   subButton.addEventListener("click", function (event) {
     event.preventDefault();
 
-    var scoreTracker = {
-      name: userSubmission.value,
-      score: score,
-    };
-    console.log(scoreTracker);
-    localStorage.setItem("scoreTracker", JSON.stringify(scoreTracker));
+    function logScore() {
+      var scoreBoard = JSON.parse(localStorage.getItem("scoreBoard") || "[]");
+      var recentScore = {
+        name: userSubmission.value,
+        score: score,
+      };
+      scoreBoard.push(recentScore);
+      localStorage.setItem("scoreBoard", JSON.stringify(scoreBoard));
+    }
+
+    logScore();
+
     window.open("score.html");
   });
 }

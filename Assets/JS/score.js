@@ -5,9 +5,8 @@ var displayScore = document.getElementById("the-Score");
 var getScore = localStorage.getItem("coding quiz score");
 var highScores = document.getElementById("high-scores");
 
-
 function renderMessage() {
-  var lastScore = JSON.parse(localStorage.getItem("scoreTracker"));
+  var lastScore = JSON.parse(localStorage.getItem("scoreBoard"));
   var p = document.createElement("p");
   var scoreRow = highScores.appendChild(p);
   scoreRow.textContent =
