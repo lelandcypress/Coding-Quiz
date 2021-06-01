@@ -2,7 +2,7 @@
 
 This is a simple quiz game created with Vanilla JavaScript and Bootstrap.
 
-Deployed URL:
+Deployed URL: https://lelandcypress.github.io/Coding-Quiz/
 
 ## User Experience
 
