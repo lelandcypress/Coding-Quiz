@@ -1,8 +1,14 @@
 # JavaScript Coding-Quiz
 
-This is a simple quiz game created with Vanilla JavaScript and Bootstrap.
+![MIT License](https://img.shields.io/badge/License-MIT-brightgreen)
+
+## Description
+Test your basic JavaScript Knowledge and see your score.
 
 Deployed URL: https://lelandcypress.github.io/Coding-Quiz/
+
+## Technology Used
+Plain ole JavaScript and Bootstrap 
 
 ## User Experience
 
@@ -33,3 +39,7 @@ Deployed URL: https://lelandcypress.github.io/Coding-Quiz/
 1. Once they click "Submit" they will be taken to a seperate page, which displays their high scores, pulled from local storage. They will have the option of playing again.
 
    ![High Score](Assets/Markdown/High-Score.PNG)
+
+
+## Contact
+If you have any questions about this project, you can reach out at [lelandcypress](https://github.com/lelandcypress), or souterm1@gmail.com
